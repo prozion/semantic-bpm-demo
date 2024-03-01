@@ -1,0 +1,27 @@
+semantic_bpm_ontology a:owl/Ontology ns:https://prozion.inrupt.net/public/ontologies/sem_bpm.ttl# rdfs/label:"Ontology for semantic BPN (business process management)"
+	namespaces
+		rdf ns:http://www.w3.org/1999/02/22-rdf-syntax-ns#
+		rdfs ns:http://www.w3.org/2000/01/rdf-schema#
+		owl ns:http://www.w3.org/2002/07/owl#
+		xsd ns:http://www.w3.org/2001/XMLSchema#
+	classes +a:owl/Class +hi-inv-rel:subclass-of
+		Artifact
+			Document
+		Chart
+		HasStatus
+			Featured
+		Process
+			StartProcess
+			FinalProcess
+		Role
+			Implementer
+		Template
+			DocumentTemplate
+	properties +a:rdf/Property +hi-inv-rel:subproperty-of
+		featureOf range:Featured domain:Artifact
+		implementer range:Process domain:Implementer
+		in range:Process domain:Artifact
+		next range:Process domain:Process
+		out range:Process domain:Artifact
+		outcome range:Process domain:Artifact
+		template domain:Document range:Template

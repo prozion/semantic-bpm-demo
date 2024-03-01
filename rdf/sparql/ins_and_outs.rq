@@ -1,0 +1,17 @@
+prefix : <https://prozion.inrupt.net/public/ontologies/sem_bpm.ttl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select ?in ?out
+where {
+  OPTIONAL {
+    ?p1 a :StartProcess ;
+        :in ?_in .
+    ?_in rdfs:label ?in .
+  }
+  OPTIONAL {
+    ?p2 a :FinalProcess ;
+        :out ?_out .
+    ?_out rdfs:label ?out .
+  }
+}

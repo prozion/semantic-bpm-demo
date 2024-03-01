@@ -1,0 +1,51 @@
+#!/bin/bash
+
+SCRIPT_DIR=$( cd -- "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+ROOT=$SCRIPT_DIR
+
+cd "$TABTREE_LIB"
+
+TARGET="$ROOT/target"
+
+case $1 in
+
+"dot" )
+
+  TARGET_DOT_TTL="$TARGET/dot.ttl"
+  echo "Not implemented yet"
+
+;;
+
+"sem_bpm" )
+
+  TARGET_SEM_BPM_TTL="$TARGET/sem_bpm.ttl"
+  echo "Not implemented yet"
+
+;;
+
+"chart" )
+
+  CHART="$ROOT/source/charts/$2.tree"
+  ONTOLOGY_TABTREE="$ROOT/source/sem_bpm_ontology/sem_bpm_ontology.tree"
+
+  echo ""
+  echo "* Check undeclared objects and predicates"
+  clj -M:all-undeclared --tabtree $CHART --ignore-keys "" --external-ontology $ONTOLOGY_TABTREE
+
+  echo ""
+  echo "* make chart RDF"
+  clj -M:compile-ttl --source $CHART --target "$TARGET/$2.ttl" --ref-tabtree $ONTOLOGY_TABTREE
+
+  echo ""
+  echo "* Validate chart RDF"
+  ttl "$TARGET/$2.ttl"
+
+  echo ""
+  echo "* Incoming and outcoming documents of the workflow:"
+  arq --data "$TARGET/$2.ttl" --query $ROOT/sparql/ins_and_outs.rq
+
+;;
+
+esac
+
+cd - 1>/dev/null
