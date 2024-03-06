@@ -1,0 +1,88 @@
+@prefix : <https://prozion.inrupt.net/public/ontologies/sem_bpm.ttl#> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+:
+  a owl:Ontology ;
+  rdfs:label "Ontology for semantic BPN (business process management)" .
+
+:Artifact
+  a owl:Class .
+
+:Chart
+  a owl:Class .
+
+:Document
+  a owl:Class ;
+  rdfs:subClassOf :Artifact .
+
+:DocumentTemplate
+  a owl:Class ;
+  rdfs:subClassOf :Template .
+
+:Featured
+  a owl:Class ;
+  rdfs:subClassOf :HasStatus .
+
+:featureOf
+  a rdf:Property ;
+  rdfs:domain :Artifact ;
+  rdfs:range :Featured .
+
+:FinalProcess
+  a owl:Class ;
+  rdfs:subClassOf :Process .
+
+:HasStatus
+  a owl:Class .
+
+:Implementer
+  a owl:Class ;
+  rdfs:subClassOf :Role .
+
+:implementer
+  a rdf:Property ;
+  rdfs:domain :Implementer ;
+  rdfs:range :Process .
+
+:in
+  a rdf:Property ;
+  rdfs:domain :Artifact ;
+  rdfs:range :Process .
+
+:next
+  a rdf:Property ;
+  rdfs:domain :Process ;
+  rdfs:range :Process .
+
+:out
+  a rdf:Property ;
+  rdfs:domain :Artifact ;
+  rdfs:range :Process .
+
+:outcome
+  a rdf:Property ;
+  rdfs:domain :Artifact ;
+  rdfs:range :Process .
+
+:Process
+  a owl:Class .
+
+:Role
+  a owl:Class .
+
+:StartProcess
+  a owl:Class ;
+  rdfs:subClassOf :Process .
+
+:Template
+  a owl:Class .
+
+:template
+  a rdf:Property ;
+  rdfs:domain :Document ;
+  rdfs:range :Template .
+

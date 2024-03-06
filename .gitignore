@@ -5,3 +5,5 @@ report.0.rdf
 validator.log
 *byhand.ttl
 source/**/*.ttl
+out
+.cpcache

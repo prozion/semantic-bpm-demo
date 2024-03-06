@@ -9,17 +9,22 @@ TARGET="$ROOT/target"
 
 case $1 in
 
-"dot" )
+"translate" )
 
   TARGET_DOT_TTL="$TARGET/dot.ttl"
   echo "Not implemented yet"
 
 ;;
 
-"sem_bpm" )
+"ontologies" )
 
-  TARGET_SEM_BPM_TTL="$TARGET/sem_bpm.ttl"
-  echo "Not implemented yet"
+  echo ""
+  echo "* Make Semantic BPM ontology"
+  clj -M:compile-ttl --source "$ROOT/source/sem_bpm_ontology/sem_bpm_ontology.tree" --target "$TARGET/sem_bpm.ttl"
+
+  echo ""
+  echo "* Validate Semantic BPM ontology"
+  ttl "$TARGET/sem_bpm.ttl"
 
 ;;
 
@@ -33,7 +38,7 @@ case $1 in
   clj -M:all-undeclared --tabtree $CHART --ignore-keys "" --external-ontology $ONTOLOGY_TABTREE
 
   echo ""
-  echo "* make chart RDF"
+  echo "* Make chart RDF"
   clj -M:compile-ttl --source $CHART --target "$TARGET/$2.ttl" --ref-tabtree $ONTOLOGY_TABTREE
 
   echo ""

@@ -1,0 +1,20 @@
+{
+  :deps
+  {
+    clj-odysseus/clj-odysseus {:local/root "/home/denis/projects/clj_odysseus"}
+    clj-tabtree/clj-tabtree {:local/root "/home/denis/projects/clj_tabtree"}
+    compojure/compojure {:mvn/version "1.7.1"}
+    fipp/fipp {:mvn/version "0.6.26"}
+    org.clojure/clojure {:mvn/version "1.11.1"}
+    ring/ring-core {:mvn/version "1.9.1"}
+    ring/ring-jetty-adapter {:mvn/version "1.9.1"}
+    ring-cors/ring-cors {:mvn/version "0.1.13"}}
+  :paths ["src" "static"]
+  :aliases
+  {
+    :start
+    {
+      :main-opts ["-m" "sem-bpm-server.core" "start"]}
+    :stop
+    {
+      :main-opts ["-m" "sem-bpm-server.core" "stop"]}}}

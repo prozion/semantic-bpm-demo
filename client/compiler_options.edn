@@ -1,0 +1,5 @@
+{
+  :main sem-bpm-client.core
+  :optimizations :simple
+  :output-to "../server/static/js/main.js"}
+  ; :verbose true}

@@ -6,3 +6,4 @@ dot_format_ontology a:owl/Ontology ns:https://prozion.inrupt.net/public/ontologi
 		xsd ns:http://www.w3.org/2001/XMLSchema#
 	classes +a:owl/Class +hi-inv-rel:subclass-of
 		Node
+		StartNode

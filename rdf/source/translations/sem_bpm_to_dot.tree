@@ -1,0 +1,14 @@
+sem_bpm_to_dot_translation a:SHACLDocument ns:https://prozion.inrupt.net/public/ontologies/dot.ttl# rdfs/label:"Ontology for DOT format for graph graphical representation"
+	namespaces
+		rdf ns:http://www.w3.org/1999/02/22-rdf-syntax-ns#
+		rdfs ns:http://www.w3.org/2000/01/rdf-schema#
+		owl ns:http://www.w3.org/2002/07/owl#
+		xsd ns:http://www.w3.org/2001/XMLSchema#
+		sh ns:http://www.w3.org/ns/shacl#
+		bpm ns:https://prozion.inrupt.net/public/ontologies/sem_bpm.ttl#
+		dot ns:https://prozion.inrupt.net/public/ontologies/dot.ttl#
+	shapes
+		bpm/StartProcess sh/rule:_1
+			_1 a:sh/TripleRule sh/subject:sh/this sh/predicate:a sh/object:dot/StartNode
+		bpm/Process sh/rule:_1
+			_1 a:sh/TripleRule sh/subject:sh/this sh/predicate:a sh/object:dot/Node
