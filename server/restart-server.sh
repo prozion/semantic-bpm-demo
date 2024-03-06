@@ -16,7 +16,7 @@ caddy stop
 
 # nohup lein ring server-headless > /dev/null >/var/log/projects/taganrog-history-kb/ring.log 2>&1& echo $! > /var/run/denis/ring.pid
 
-clj -M:stop
+# clj -M:stop
 nohup clj -M:start
 
 caddy run --config /etc/caddy/Caddyfile
