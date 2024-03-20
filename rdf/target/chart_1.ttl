@@ -1,5 +1,6 @@
 @prefix : <https://prozion.inrupt.net/public/ontologies/sem_bpm.ttl#> . 
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 
 :

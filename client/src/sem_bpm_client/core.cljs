@@ -18,7 +18,7 @@
         (let [code-textarea (js/document.getElementById "code-textarea")
               rdf-result-block (js/document.getElementById "pills-rdf-content")]
           (POST
-            (str server-url "/generate")
+            (str server-url "/rdf_to_dot")
             {
               :body (.-innerHTML code-textarea)
               :handler (fn [response]

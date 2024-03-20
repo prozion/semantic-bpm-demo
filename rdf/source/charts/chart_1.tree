@@ -1,6 +1,7 @@
 chart_1 a:Chart ns:https://prozion.inrupt.net/public/ontologies/sem_bpm.ttl#
 	namespaces
 		rdfs ns:http://www.w3.org/2000/01/rdf-schema#
+		rdf ns:http://www.w3.org/1999/02/22-rdf-syntax-ns#
 	elements
 		implementers +a:Implementer
 			Помощник
